@@ -1,29 +1,30 @@
 ﻿using System.Web;
 using System.Web.Http;
-using Castle.MicroKernel.Resolvers.SpecializedResolvers;
-using Castle.Windsor;
-using Castle.Windsor.Installer;
+using DachsCashAPI.Services;
+using SimpleInjector;
+using SimpleInjector.Integration.WebApi;
 
 namespace DachsCashAPI
 {
     public class WebApiApplication : HttpApplication
     {
-        private static IWindsorContainer _container;
+        private static Container _container;
 
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-            ConfigureWindsor(GlobalConfiguration.Configuration);
+            ConfigureIoc(GlobalConfiguration.Configuration);
         }
 
-        private static void ConfigureWindsor(HttpConfiguration configuration)
+        private static void ConfigureIoc(HttpConfiguration configuration)
         {
-            _container = new WindsorContainer();
-            _container.Install(FromAssembly.This());
-            _container.Kernel.Resolver.AddSubResolver(new CollectionResolver(_container.Kernel, true));
-            var dependencyResolver = new WindsorDependencyResolver(_container);
-            configuration.DependencyResolver = dependencyResolver;
+            _container = new Container();
+
+            _container.Register<IBudgetService, BudgetService>(Lifestyle.Transient);
+            _container.Verify();
+
+            configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(_container);
         }
     }
 }
