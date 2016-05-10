@@ -1,28 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Http.Description;
 using DachsCashAPI.Models;
 using DachsCashAPI.Services;
+using DachsCashAPI.Utils;
 
 namespace DachsCashAPI.Controllers
 {
+    [RoutePrefix("api/budget")]
     public class BudgetController : ApiController
     {
         private readonly IBudgetService _budgetService;
+        private readonly ILogger _logger;
 
-        public BudgetController(IBudgetService budgetService)
+        public BudgetController(IBudgetService budgetService, ILogger logger)
         {
             _budgetService = budgetService;
+            _logger = logger;
         }
 
+        /// <summary>
+        /// Get all available budgets
+        /// </summary>
+        /// <returns>Not implemented</returns>
+        [Route("")]
+        [ResponseType(typeof(IEnumerable<BudgetModel>))]
         public IEnumerable<BudgetModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public BudgetModel Get(int id)
+        /// <summary>
+        /// Get budget by id
+        /// </summary>
+        /// <param name="id">Budget Id</param>
+        /// <returns></returns>
+        [Route("{id:int}", Name = "GetBudgetById")]
+        [ResponseType(typeof(BudgetModel))]
+        public IHttpActionResult Get(int id)
         {
-            return _budgetService.Get();
+            return Ok(_budgetService.Get());
         }
     }
 }
