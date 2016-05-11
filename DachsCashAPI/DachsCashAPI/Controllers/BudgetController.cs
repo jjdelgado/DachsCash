@@ -12,12 +12,10 @@ namespace DachsCashAPI.Controllers
     public class BudgetController : ApiController
     {
         private readonly IBudgetService _budgetService;
-        private readonly ILogger _logger;
 
-        public BudgetController(IBudgetService budgetService, ILogger logger)
+        public BudgetController(IBudgetService budgetService)
         {
             _budgetService = budgetService;
-            _logger = logger;
         }
 
         /// <summary>
@@ -38,9 +36,9 @@ namespace DachsCashAPI.Controllers
         /// <returns></returns>
         [Route("{id:int}", Name = "GetBudgetById")]
         [ResponseType(typeof(BudgetModel))]
-        public IHttpActionResult Get(int id)
+        public BudgetModel Get(string id)
         {
-            return Ok(_budgetService.Get());
+            return _budgetService.Get(id);
         }
     }
 }

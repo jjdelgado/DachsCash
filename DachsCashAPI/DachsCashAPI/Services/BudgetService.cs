@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Http;
 using DachsCashAPI.Database;
 using DachsCashAPI.Models;
 
@@ -19,10 +20,11 @@ namespace DachsCashAPI.Services
             throw new System.NotImplementedException();
         }
 
-        public BudgetModel Get()
+        public BudgetModel Get(string id)
         {
             return new BudgetModel
             {
+                Id = id,
                 Name = "Budget from Service",
                 Created = DateTime.Now,
                 Updated = DateTime.Now

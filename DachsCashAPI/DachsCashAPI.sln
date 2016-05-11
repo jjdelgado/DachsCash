@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DachsCashAPI", "DachsCashAPI\DachsCashAPI.csproj", "{F13E1FA6-5599-40A3-AAE2-FF9F3ACC24C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DachsCashAPI.Tests", "DachsCashAPI.Tests\DachsCashAPI.Tests.csproj", "{986C1E86-8055-4CB5-A4BD-0312A7914821}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{09AB3087-F775-4450-B4EE-3F2FD7FEABD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DachsCashAPI.Tests", "DachsCashAPI.Tests\DachsCashAPI.Tests.csproj", "{29467556-8BCB-4D8E-909B-D07382C5988A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +19,15 @@ Global
 		{F13E1FA6-5599-40A3-AAE2-FF9F3ACC24C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F13E1FA6-5599-40A3-AAE2-FF9F3ACC24C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F13E1FA6-5599-40A3-AAE2-FF9F3ACC24C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{986C1E86-8055-4CB5-A4BD-0312A7914821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{986C1E86-8055-4CB5-A4BD-0312A7914821}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{986C1E86-8055-4CB5-A4BD-0312A7914821}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{986C1E86-8055-4CB5-A4BD-0312A7914821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29467556-8BCB-4D8E-909B-D07382C5988A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29467556-8BCB-4D8E-909B-D07382C5988A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29467556-8BCB-4D8E-909B-D07382C5988A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29467556-8BCB-4D8E-909B-D07382C5988A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29467556-8BCB-4D8E-909B-D07382C5988A} = {09AB3087-F775-4450-B4EE-3F2FD7FEABD2}
 	EndGlobalSection
 EndGlobal

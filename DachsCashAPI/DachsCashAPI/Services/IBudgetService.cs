@@ -6,6 +6,6 @@ namespace DachsCashAPI.Services
     public interface IBudgetService
     {
         IEnumerable<BudgetModel> GetAll();
-        BudgetModel Get();
+        BudgetModel Get(string id);
     }
 }

@@ -7,8 +7,13 @@ namespace DachsCashAPI.Models
     /// </summary>
     public class BudgetModel
     {
+
         /// <summary>
-        /// Budget given name - unique
+        /// Budget ID - unique
+        /// </summary>
+        public string Id { get; set; }
+        /// <summary>
+        /// Budget given name
         /// </summary>
         public string Name { get; set; }
         /// <summary>
