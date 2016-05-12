@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{09AB3087
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DachsCashAPI.Tests", "DachsCashAPI.Tests\DachsCashAPI.Tests.csproj", "{29467556-8BCB-4D8E-909B-D07382C5988A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DachsCashAPI.Specs", "DachsCashAPI.Specs\DachsCashAPI.Specs.csproj", "{57CCF229-9DF8-4E7F-93AE-94FABFEC0B34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +25,16 @@ Global
 		{29467556-8BCB-4D8E-909B-D07382C5988A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29467556-8BCB-4D8E-909B-D07382C5988A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29467556-8BCB-4D8E-909B-D07382C5988A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57CCF229-9DF8-4E7F-93AE-94FABFEC0B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57CCF229-9DF8-4E7F-93AE-94FABFEC0B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57CCF229-9DF8-4E7F-93AE-94FABFEC0B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57CCF229-9DF8-4E7F-93AE-94FABFEC0B34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{29467556-8BCB-4D8E-909B-D07382C5988A} = {09AB3087-F775-4450-B4EE-3F2FD7FEABD2}
+		{57CCF229-9DF8-4E7F-93AE-94FABFEC0B34} = {09AB3087-F775-4450-B4EE-3F2FD7FEABD2}
 	EndGlobalSection
 EndGlobal

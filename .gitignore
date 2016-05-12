@@ -237,3 +237,11 @@ _Pvt_Extensions
 
 # SONAR
 .sonar/
+
+# SPEC FLOW
+*feature.cs
+
+# Pickles
+**/pickles/*
+
+
