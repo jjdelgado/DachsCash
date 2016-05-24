@@ -12,10 +12,12 @@ namespace DachsCashAPI.Controllers
     public class BudgetController : ApiController
     {
         private readonly IBudgetService _budgetService;
+        private readonly ILogger _logger;
 
         public BudgetController(IBudgetService budgetService)
         {
             _budgetService = budgetService;
+            _logger = WebApiApplication.GetComponent<ILogger>();
         }
 
         /// <summary>
@@ -38,6 +40,7 @@ namespace DachsCashAPI.Controllers
         [ResponseType(typeof(BudgetModel))]
         public BudgetModel Get(string id)
         {
+            _logger.Debug("**** Testing *****");
             return _budgetService.Get(id);
         }
     }

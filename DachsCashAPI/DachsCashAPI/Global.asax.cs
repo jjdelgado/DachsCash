@@ -1,6 +1,10 @@
 ﻿using System.Linq;
 using System.Web;
 using System.Web.Http;
+using DachsCashAPI.App_Start;
+using DachsCashAPI.Database;
+using DachsCashAPI.Services;
+using DachsCashAPI.Utils;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 
@@ -13,6 +17,7 @@ namespace DachsCashAPI
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            LogConfig.Register();
 
             ConfigureIoc(GlobalConfiguration.Configuration);
         }
@@ -30,17 +35,17 @@ namespace DachsCashAPI
 
         private static void RegisterComponents(Container container)
         {
-            var repositoryAssembly = typeof(WebApiApplication).Assembly;
-
-            var registrations = from type in repositoryAssembly.GetExportedTypes()
-                                where type.Namespace == "DachsCashAPI.Services" || type.Namespace == "DachsCashAPI.Utils" || type.Namespace == "DachsCashAPI.Database"
-                                where type.GetInterfaces().Any()
-                                select new { Service = type.GetInterfaces().Single(), Implementation = type };
-
-            foreach (var registration in registrations)
-            {
-                container.Register(registration.Service, registration.Implementation, Lifestyle.Scoped);
-            }
+            // utils
+            container.Register<ILogger, Logger>(Lifestyle.Scoped);
+            container.Register<IDbSession, DbSession>(Lifestyle.Scoped);
+            
+            // services
+            container.Register<IBudgetService, BudgetService>(Lifestyle.Scoped);
         }
+
+         public static T GetComponent<T>() where T : class
+         {
+             return (T) _container.GetInstance<T>();
+         }
     }
 }
